@@ -31,5 +31,13 @@
   notify: restart exim
   when: exim_primary_hostname != ''
 
+- name: Configure /etc/aliases
+  lineinfile:
+    dest: "/etc/aliases"
+    regexp: "^{{ item.user }}"
+    line: "{{ item.user }}: {{ item.alias }}"
+    state: present
+  with_items: "{{exim_aliases}}"
+  
 - name: Ensure exim is running.
   service: "name={{ exim_daemon }} state=started enabled=yes"
