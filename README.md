@@ -4,6 +4,9 @@
 
 Installs Exim (a Mail Transfer Agent) on RedHat/CentOS or Debian/Ubuntu.
 
+Remember being a good mail server citizen:
+ - add a reverse DNS lookup for your mail domain(s)
+
 ## Requirements
 
 None.
